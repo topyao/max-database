@@ -11,15 +11,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Max\Database\Events;
+namespace Max\Database\Exceptions;
 
-class QueryExecuted
+class QueryException extends \Exception
 {
-    public function __construct(
-        public string $query,
-        public array  $bindings,
-        public float  $duration
-    )
-    {
-    }
 }
