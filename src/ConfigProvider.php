@@ -17,12 +17,14 @@ class ConfigProvider
 {
     public function __invoke(): array
     {
-        return [];
-    }
-
-    public function publish()
-    {
-        $to = dirname(__DIR__, 4) . '/config/database.php';
-        file_exists($to) || copy(__DIR__ . '/../publish/database.php', $to);
+        return [
+            'publish' => [
+                [
+                    'name'        => 'database',
+                    'source'      => __DIR__ . '/../publish/database.php',
+                    'destination' => dirname(__DIR__, 4) . '/config/database.php',
+                ]
+            ],
+        ];
     }
 }
